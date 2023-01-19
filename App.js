@@ -18,7 +18,7 @@ export default class App extends React.Component {
 
   async _subscribe() {
     const batteryLevel = await Battery.getBatteryLevelAsync();
-    const valor = Math.round(batteryLevel * 10000) / 100;
+    const valor = Math.ceil(batteryLevel * 10000) / 100;
     this.setState({ valor });
     this._subscription = Battery.addBatteryLevelListener(({ valor }) => {
       this.setState({ valor });
